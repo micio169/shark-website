@@ -1,0 +1,14 @@
+{
+  "name": "shark-website",
+  "version": "1.0.0",
+  "description": "상어 공식 웹사이트 서버",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "better-sqlite3": "^11.0.0"
+  }
+}

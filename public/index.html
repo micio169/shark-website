@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상어 - 공식 웹사이트</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">SHARK <span>GAME</span></a>
+            <nav class="nav-menu">
+                <a href="#home">홈</a>
+                <a href="#news">새로운 소식</a>
+                <div id="auth-zone">
+                    <button class="btn-auth" onclick="toggleLoginModal(true)">GM 로그인</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="overlay"></div>
+        <div class="hero-bg-mock"></div> 
+        <div class="hero-content">
+            <h2 class="sub-title">매우 재미있는 그런 게임!</h2>
+            <h1 class="main-title">상어 - SHARK</h1>
+            <p class="description">매우 재미있는 상어 게임! - 공식 웹사이트</p>
+        </div>
+    </section>
+
+    <section id="news" class="section news-section">
+        <div class="container">
+            <h2 class="section-title">LATEST NEWS</h2>
+            
+            <div id="write-trigger-zone" style="display: none; text-align: right; margin-bottom: 20px;">
+                <button class="btn-primary" onclick="toggleWriteModal(true)"><i class="fa-solid fa-pen"></i> 새 공지 작성</button>
+            </div>
+
+            <div class="news-grid" id="news-grid-target">
+                </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>Copyright © 2026 micio. All rights reserved.</p>
+    </footer>
+
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-content small-modal">
+            <span class="modal-close" onclick="toggleLoginModal(false)">&times;</span>
+            <div class="patch-content">
+                <h2>GM 로그인</h2>
+                <form id="login-form" onsubmit="handleLogin(event)">
+                    <input type="text" id="login-id" placeholder="관리자 ID" required class="form-input">
+                    <input type="password" id="login-pw" placeholder="비밀번호" required class="form-input">
+                    <button type="submit" class="btn-primary" style="width:100%; margin-top:15px;">접속</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="writeModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close" onclick="toggleWriteModal(false)">&times;</span>
+            <div class="patch-content">
+                <h2>새로운 소식 등록</h2>
+                <form id="write-form" onsubmit="handleWrite(event)">
+                    <label>카테고리</label>
+                    <select id="post-tag" class="form-input">
+                        <option value="patch">패치노트</option>
+                        <option value="event">이벤트</option>
+                        <option value="notice">공지사항</option>
+                    </select>
+                    <label>제목</label>
+                    <input type="text" id="post-title" required class="form-input" placeholder="제목을 입력하세요">
+                    <label>본문 내용</label>
+                    <textarea id="post-content" required class="form-input" rows="10" placeholder="내용을 입력하세요"></textarea>
+                    <button type="submit" class="btn-primary" style="width:100%; margin-top:15px;">공성전 공지 타종 (등록)</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="detailModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close" onclick="toggleDetailModal(false)">&times;</span>
+            <div class="patch-content" id="detail-target">
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
